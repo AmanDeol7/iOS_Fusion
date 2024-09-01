@@ -10,6 +10,7 @@ export default function FAQ() {
         <Question />
         <Question />
         <Question />
+        <Question />
       </div>
     </section>
   );

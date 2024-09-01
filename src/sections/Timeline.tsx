@@ -6,10 +6,10 @@ export default function Timeline() {
   const [range, setRange] = useState<number>(0);
 
   const getBackgroundColor = (index: number): string => {
-    if (range <= 25 && index === 0) return "bg-[#5F2EEA]";
-    if (range > 25 && range <= 50 && index === 1) return "bg-[#5F2EEA]";
-    if (range > 50 && range <= 75 && index === 2) return "bg-[#5F2EEA]";
-    if (range > 75 && index === 3) return "bg-[#5F2EEA]";
+    if (range < 33.33 && index === 0) return "bg-[#5F2EEA]";
+    if (range >= 33.33 && range < 66.66 && index === 1) return "bg-[#5F2EEA]";
+    if (range >= 66.66 && range <= 99.99 && index === 2) return "bg-[#5F2EEA]";
+    if (range == 100 && index === 3) return "bg-[#5F2EEA]";
     return "bg-[#1A1A1A]";
   };
 
@@ -20,13 +20,13 @@ export default function Timeline() {
   const handleClick = (index: number) => {
     switch (index) {
       case 0:
-        setRange(25);
+        setRange(0);
         break;
       case 1:
-        setRange(50);
+        setRange(33.33);
         break;
       case 2:
-        setRange(75);
+        setRange(66.66);
         break;
       case 3:
         setRange(100);

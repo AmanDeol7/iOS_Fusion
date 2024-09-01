@@ -1,4 +1,4 @@
-import Image from "next/image";
+import React from "react";
 import LandingPage from "@/sections/Home";
 import Description from "@/sections/Description";
 import Speakers from "@/sections/Speakers";
@@ -7,14 +7,13 @@ import Partners from "@/sections/Partners";
 import FAQ from "@/sections/FAQ";
 import Footer from "@/sections/Footer";
 import ScrollTop from "@/components/ScrollTop";
-import LandingPageMobile from "@/sections/Home-mobile";
-import useWindowWidth from "@/components/WindowWidth";
+
 export default function Home() {
-  // const windowWidth = useWindowWidth();
   return (
     <>
-      {/* {windowWidth > 768 ? <LandingPage /> : <LandingPageMobile />} */}
-      <LandingPage />
+      <div className="hidden md:block">
+        <LandingPage />
+      </div>
       <Description />
       <Speakers />
       <Timeline />
