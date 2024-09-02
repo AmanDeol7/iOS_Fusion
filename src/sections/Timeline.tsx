@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Event from "@/components/Event";
 
 export default function Timeline() {
@@ -35,6 +35,23 @@ export default function Timeline() {
         break;
     }
   };
+  const sliderRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+
+    if (slider) {
+      const handleInput = () => {
+        slider.style.transition = "all 0.5s ease";
+      };
+
+      slider.addEventListener("input", handleInput);
+
+      return () => {
+        slider.removeEventListener("input", handleInput);
+      };
+    }
+  }, []);
 
   return (
     <section
@@ -55,11 +72,12 @@ export default function Timeline() {
         <div className="h-full flex justify-center">
           <input
             type="range"
+            ref={sliderRef}
             min="0"
             max="100"
             value={range}
             onChange={handleRangeChange}
-            className="w-[20rem] transform rotate-90 bg-white"
+            className="w-[20rem] transform rotate-90 bg-white transition-all duration-500 ease-out"
           />
         </div>
 

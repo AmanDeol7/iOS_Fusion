@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
-// import { Raleway } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
-// const raleway = Raleway({ subsets: ["latin"], weight: ["400", "700", "600"] });
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: "300",
+});
 
 export const metadata: Metadata = {
-  title: "iOSFusion | ADG",
+  title: "iOSFusion 7.0 | ADG",
   description: "iOS Fusion 7.0",
 };
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+      <body className={archivo.className}>{children}</body>
     </html>
   );
 }
