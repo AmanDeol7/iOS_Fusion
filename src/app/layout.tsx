@@ -4,7 +4,7 @@ import "./globals.css";
 
 const archivo = Archivo({
   subsets: ["latin"],
-  weight: "300",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
