@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 const archivo = Archivo({
   subsets: ["latin"],
-  weight: "300",
+  weight: "400",
 });
 
 export const metadata: Metadata = {

@@ -6,10 +6,10 @@ export default function Timeline() {
   const [range, setRange] = useState<number>(0);
 
   const getBackgroundColor = (index: number): string => {
-    if (range < 33.33 && index === 0) return "bg-[#5F2EEA]";
-    if (range >= 33.33 && range < 66.66 && index === 1) return "bg-[#5F2EEA]";
-    if (range >= 66.66 && range <= 99.99 && index === 2) return "bg-[#5F2EEA]";
-    if (range == 100 && index === 3) return "bg-[#5F2EEA]";
+    if (range < 33.33 && index === 0) return "bg-[#5C4AC8]";
+    if (range >= 33.33 && range < 66.66 && index === 1) return "bg-[#5C4AC8]";
+    if (range >= 66.66 && range <= 99.99 && index === 2) return "bg-[#5C4AC8]";
+    if (range == 100 && index === 3) return "bg-[#5C4AC8]";
     return "bg-[#1A1A1A]";
   };
 
@@ -82,16 +82,30 @@ export default function Timeline() {
         </div>
 
         <div className="w-[60%] gap-8 justify-center items-center flex flex-col p-12">
-          {[0, 1, 2, 3].map((index) => (
+          <div className="flex flex-col gap-4 mb-5">
             <Event
-              key={index}
-              onClick={() => handleClick(index)}
-              className={`flex flex-col gap-2 ${getBackgroundColor(index)}`}
-              style={{
-                transition: "background-color 0.3s ease-in-out", 
-              }}
+              key={0}
+              onClick={() => handleClick(0)}
+              className={`flex flex-col ${getBackgroundColor(0)}`}
             />
-          ))}
+            <Event
+              key={1}
+              onClick={() => handleClick(1)}
+              className={`flex flex-col ${getBackgroundColor(1)}`}
+            />
+          </div>
+          <div className="flex flex-col gap-4 mb-5">
+            <Event
+              key={2}
+              onClick={() => handleClick(2)}
+              className={`flex flex-col ${getBackgroundColor(2)}`}
+            />
+            <Event
+              key={3}
+              onClick={() => handleClick(3)}
+              className={`flex flex-col ${getBackgroundColor(3)}`}
+            />
+          </div>
         </div>
       </div>
     </section>
