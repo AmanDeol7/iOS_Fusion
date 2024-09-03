@@ -7,10 +7,10 @@ export default function Timeline() {
   const [range, setRange] = useState<number>(0);
 
   const getBackgroundColor = (index: number): string => {
-    if (range < 33.33 && index === 0) return "bg-[#5C4AC8]";
-    if (range >= 33.33 && range < 66.66 && index === 1) return "bg-[#5C4AC8]";
-    if (range >= 66.66 && range <= 99.99 && index === 2) return "bg-[#5C4AC8]";
-    if (range == 100 && index === 3) return "bg-[#5C4AC8]";
+    if (range < 33.33 && index === 3) return "bg-[#5C4AC8]";
+    if (range >= 33.33 && range < 66.66 && index === 2) return "bg-[#5C4AC8]";
+    if (range >= 66.66 && range <= 99.99 && index === 1) return "bg-[#5C4AC8]";
+    if (range == 100 && index === 0) return "bg-[#5C4AC8]";
     return "bg-[#1A1A1A]";
   };
 
@@ -75,20 +75,14 @@ export default function Timeline() {
               aria-labelledby="range-slider"
               min={0}
               max={100}
-              
+              track="inverted"
               orientation="vertical"
               
               sx={{
-                '& input[type="range"]': {
-                  WebkitAppearance: 'slider-vertical',
-                }, 
                 width: 10, 
                 height: '65%', 
                 color: '#5f37b0',
-                transform: 'rotate(180deg)',
-                
-                
-                
+
               }}
             />
         </div>
