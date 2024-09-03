@@ -18,7 +18,8 @@
     "jsx": "preserve",
     "baseUrl": "./src", // Set the base URL to your src directory
     "paths": {
-      "@/*": ["*"] // Set up path aliases
+      "@/*": ["*"], // Set up path aliases
+     
     },
     "plugins": [
       {

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Event from "@/components/Event";
+import Slider from "@mui/material/Slider";
 
 export default function Timeline() {
   const [range, setRange] = useState<number>(0);
@@ -13,10 +14,9 @@ export default function Timeline() {
     return "bg-[#1A1A1A]";
   };
 
-  const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRange(parseInt(e.target.value, 10));
+  const handleRangeChange = (event: Event, newValue: number | number[]) => {
+    setRange(Array.isArray(newValue) ? newValue[0] : newValue);
   };
-
   const handleClick = (index: number) => {
     switch (index) {
       case 0:
@@ -35,24 +35,23 @@ export default function Timeline() {
         break;
     }
   };
-  const sliderRef = useRef<HTMLInputElement | null>(null);
+  // const sliderRef = useRef<HTMLInputElement | null>(null);
 
-  useEffect(() => {
-    const slider = sliderRef.current;
+  // useEffect(() => {
+  //   const slider = sliderRef.current;
 
-    if (slider) {
-      const handleInput = () => {
-        slider.style.transition = "all 0.5s ease";
-      };
+  //   if (slider) {
+  //     const handleInput = () => {
+  //       slider.style.transition = "all 0.5s ease";
+  //     };
 
-      slider.addEventListener("input", handleInput);
+  //     slider.addEventListener("input", handleInput);
 
-      return () => {
-        slider.removeEventListener("input", handleInput);
-      };
-    }
-  }, []);
-
+  //     return () => {
+  //       slider.removeEventListener("input", handleInput);
+  //     };
+  //   }
+  // }, []);
   return (
     <section
       id="timeline"
@@ -69,16 +68,29 @@ export default function Timeline() {
           </div>
         </div>
 
-        <div className="h-full flex justify-center">
-          <input
-            type="range"
-            ref={sliderRef}
-            min="0"
-            max="100"
-            value={range}
-            onChange={handleRangeChange}
-            className="w-[20rem] transform rotate-90 bg-white transition-all duration-500 ease-out"
-          />
+        <div className="h-full flex justify-center  mt-[5rem] rotate-0">
+          <Slider
+              value={range}
+              onChange={handleRangeChange}
+              aria-labelledby="range-slider"
+              min={0}
+              max={100}
+              
+              orientation="vertical"
+              
+              sx={{
+                '& input[type="range"]': {
+                  WebkitAppearance: 'slider-vertical',
+                }, 
+                width: 10, 
+                height: '65%', 
+                color: '#5f37b0',
+                transform: 'rotate(180deg)',
+                
+                
+                
+              }}
+            />
         </div>
 
         <div className="w-[60%] gap-8 justify-center items-center flex flex-col p-12">
@@ -87,6 +99,7 @@ export default function Timeline() {
               key={0}
               onClick={() => handleClick(0)}
               className={`flex flex-col ${getBackgroundColor(0)}`}
+
             />
             <Event
               key={1}
@@ -94,7 +107,7 @@ export default function Timeline() {
               className={`flex flex-col ${getBackgroundColor(1)}`}
             />
           </div>
-          <div className="flex flex-col gap-4 mb-5">
+          <div className="flex flex-col gap-4 mb-4">
             <Event
               key={2}
               onClick={() => handleClick(2)}
