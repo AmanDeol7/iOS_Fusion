@@ -87,6 +87,9 @@ export default function Timeline() {
               key={index}
               onClick={() => handleClick(index)}
               className={`flex flex-col gap-2 ${getBackgroundColor(index)}`}
+              style={{
+                transition: "background-color 0.3s ease-in-out", 
+              }}
             />
           ))}
         </div>

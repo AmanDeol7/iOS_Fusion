@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex">
       <div className="w-[70%] justify-center bg-gradient-to-r from-indigo-950 to-black h-[100vh]">
-        <Navbar />
+          <Navbar />
         <div className="m-32 text-white">
           <p className="text-6xl font-bold my-4 text-[#5F2EEA]">iOS</p>
           <p className="text-6xl font-bold my-4">FUSION 7.0 </p>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
-
+import Navbar from "@/components/Navbar";
 const archivo = Archivo({
   subsets: ["latin"],
   weight: "300",
@@ -19,6 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+       
       <body className={archivo.className}>{children}</body>
     </html>
   );
